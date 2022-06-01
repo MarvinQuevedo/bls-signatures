@@ -34,6 +34,7 @@ A new flutter plugin project.
   s.script_phase = { 
     :name => 'Run cmake', 
     :script => '
+      rm -r ios-cmake
       git clone https://github.com/leetal/ios-cmake.git
       mkdir bls
       cd bls

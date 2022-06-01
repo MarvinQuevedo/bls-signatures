@@ -24,7 +24,7 @@ A new flutter plugin project.
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 
     'DEFINES_MODULE' => 'YES',
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386',
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386 arm64',
     'EXCLUDED_ARCHS[sdk=iphoneos*]' => 'armv7 i386',
     'LIBRARY_SEARCH_PATH' => '$(inherited)',
     'HEADER_SEARCH_PATHS' => '$(SRCROOT)/bls/install/include/chiabls',
@@ -42,7 +42,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.14.0 FATAL_ERROR)
 include(FetchContent)
 FetchContent_Declare(
   bls
-  GIT_REPOSITORY https://github.com/MegaGrindStone/bls-signatures.git
+  GIT_REPOSITORY https://github.com/MarvinQuevedo/bls-signatures.git
   GIT_TAG origin/flutter-bindings
 )
 FetchContent_MakeAvailable(bls)

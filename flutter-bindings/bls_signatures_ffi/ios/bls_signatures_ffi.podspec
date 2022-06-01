@@ -24,7 +24,7 @@ A new flutter plugin project.
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 
     'DEFINES_MODULE' => 'YES',
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386 x86_64',
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386',
     'EXCLUDED_ARCHS[sdk=iphoneos*]' => 'armv7 i386',
     'LIBRARY_SEARCH_PATH' => '$(inherited)',
     'HEADER_SEARCH_PATHS' => '$(SRCROOT)/bls/install/include/chiabls',
@@ -34,7 +34,6 @@ A new flutter plugin project.
   s.script_phase = { 
     :name => 'Run cmake', 
     :script => '
-      rm -r ios-cmake
       git clone https://github.com/leetal/ios-cmake.git
       mkdir bls
       cd bls
@@ -57,7 +56,7 @@ EOF
         -DBUILD_BLS_FLUTTER_BINDINGS=1 \
         -DBUILD_BLS_TESTS=0 \
         -DBUILD_BLS_BENCHMARKS=0
-      cmake --build build --config Release  
+      cmake --build build --config Release
       cmake --install build --config Release
     ', 
     :execution_position => :before_compile

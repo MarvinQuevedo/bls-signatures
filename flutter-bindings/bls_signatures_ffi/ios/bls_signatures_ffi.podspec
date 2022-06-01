@@ -24,7 +24,7 @@ A new flutter plugin project.
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 
     'DEFINES_MODULE' => 'YES',
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386 arm64',
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386',
     'EXCLUDED_ARCHS[sdk=iphoneos*]' => 'armv7 i386',
     'LIBRARY_SEARCH_PATH' => '$(inherited)',
     'HEADER_SEARCH_PATHS' => '$(SRCROOT)/bls/install/include/chiabls',

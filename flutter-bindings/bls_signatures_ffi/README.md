@@ -14,8 +14,29 @@ Building `bls-signatures` require cmake version `3.14.0+`, but most recent Andro
 
 ### iOS
 
-iOS build C/C++ code with XCode instead of cmake. But you still need to download cmake nonetheless, to build `bls-signatures`. Make sure it's version is above `3.14.0`. 
+iOS build C/C++ code with XCode instead of cmake. But you still need to download cmake nonetheless, to build `bls-signatures`. Make sure it's version is above `3.14.0`.
 Also, your iOS deployment must be above `11.0`.
+
+for build IPA or debug, before delete the Pods folder
+
+``` rm ios/Pods
+```
+
+for building in Apple Sillicon CPU modify Podfile in the post_install section:
+
+```post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    flutter_additional_ios_build_settings(target)
+  end
+  installer.generated_projects.each do |project|
+    project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "i386 x86_64"
+      end
+    end
+  end
+end
+```
 
 ## Creating keys and signature
 
@@ -175,6 +196,7 @@ In the future, we might implement finalizer. Related issue: [this](https://githu
 ## Run tests
 
 Running test require connected device (pyshical or emulator), then cd to `example` directory and run flutter drive.
+
 ```bash
 cd example
 flutter drive --driver=test_driver/integration_test.dart --target=test_driver/main.dart

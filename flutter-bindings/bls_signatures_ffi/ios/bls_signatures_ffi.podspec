@@ -53,7 +53,7 @@ EOF
       if [ "${CONFIGURATION}" = "Debug" ]; then
  
         cmake -G Xcode -B build -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_Swift_COMPILER_FORCED=true -DCMAKE_OSX_DEPLOYMENT_TARGET=10.0 -DCMAKE_INSTALL_PREFIX=`pwd`/install -DBUILD_BLS_FLUTTER_BINDINGS=1 -DBUILD_BLS_TESTS=0 -DBUILD_BLS_BENCHMARKS=0
-        cmake --build build --config Debug --target install
+        cmake --build build --config Release --target install
       fi
       if [ "${CONFIGURATION}" = "Release" ]; then
         cmake -G Xcode -B build \
@@ -64,7 +64,7 @@ EOF
           -DBUILD_BLS_FLUTTER_BINDINGS=1 \
           -DBUILD_BLS_TESTS=0 \
           -DBUILD_BLS_BENCHMARKS=0
- 
+
         cmake --build build --config Release
         cmake --install build --config Release
       fi

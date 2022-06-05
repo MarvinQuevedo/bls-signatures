@@ -57,8 +57,7 @@ EOF
         -DBUILD_BLS_FLUTTER_BINDINGS=1 \
         -DBUILD_BLS_TESTS=0 \
         -DBUILD_BLS_BENCHMARKS=0
-      cmake --build build --config Release
-      cmake --install build --config Release
+        cmake --build build --config Release --target install
     ', 
     :execution_position => :before_compile
   }

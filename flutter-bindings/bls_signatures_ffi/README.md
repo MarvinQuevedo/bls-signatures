@@ -19,7 +19,8 @@ Also, your iOS deployment must be above `11.0`.
 
 for build IPA or debug, before delete the Pods folder
 
-``` rm ios/Pods
+```#clean Pods folder
+rm -rf ios/Pods
 ```
 
 for building in Apple Sillicon CPU modify Podfile in the post_install section:
